@@ -22,6 +22,7 @@
 		FC240F5B1FA09AE200A76732 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC240F5A1FA09AE200A76732 /* Person.swift */; };
 		FC240F5E1FA0ADB600A76732 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC240F5C1FA0ADB600A76732 /* DetailsViewController.swift */; };
 		FC240F5F1FA0ADB600A76732 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC240F5D1FA0ADB600A76732 /* DetailsViewController.xib */; };
+		FC240F611FA0D40100A76732 /* names.plist in Resources */ = {isa = PBXBuildFile; fileRef = FC240F601FA0D40100A76732 /* names.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		FC240F5A1FA09AE200A76732 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		FC240F5C1FA0ADB600A76732 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
 		FC240F5D1FA0ADB600A76732 /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
+		FC240F601FA0D40100A76732 /* names.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = names.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +121,7 @@
 				FC240F251FA07ED600A76732 /* Main.storyboard */,
 				FC240F521FA07FC300A76732 /* ContactsTableViewController.swift */,
 				FC240F541FA081A100A76732 /* ContactsTableViewCell.swift */,
+				FC240F601FA0D40100A76732 /* names.plist */,
 				FC240F561FA08F6F00A76732 /* AddViewController.swift */,
 				FC240F571FA08F6F00A76732 /* AddViewController.xib */,
 				FC240F5C1FA0ADB600A76732 /* DetailsViewController.swift */,
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FC240F2F1FA07ED600A76732 /* LaunchScreen.storyboard in Resources */,
+				FC240F611FA0D40100A76732 /* names.plist in Resources */,
 				FC240F2C1FA07ED600A76732 /* Assets.xcassets in Resources */,
 				FC240F5F1FA0ADB600A76732 /* DetailsViewController.xib in Resources */,
 				FC240F591FA08F6F00A76732 /* AddViewController.xib in Resources */,

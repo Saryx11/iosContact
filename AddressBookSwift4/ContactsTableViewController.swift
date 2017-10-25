@@ -14,6 +14,20 @@ class ContactsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let namesPlist = Bundle.main.path(forResource: "names.plist", ofType: nil)
+        if let namesPath = namesPlist{
+            let url = URL(fileURLWithPath: namesPath)
+            let dataArray = NSArray(contentsOf: url)
+            
+            for dict in dataArray!{
+                if let dictionnary = dict as?[String: String]{
+                    let person = Person(familyName: dictionnary["lastname"]!, lastName: dictionnary["name"]!)
+                    persons.append(person)
+                    print(dictionnary)
+                }
+            }
+            print(dataArray)
+        }
         self.title = "Contacts"
         persons.append(Person(familyName: "Louis", lastName: "Benjamin"))
         persons.append(Person(familyName: "Revel", lastName: "Maxime"))
