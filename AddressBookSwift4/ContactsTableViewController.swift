@@ -33,6 +33,7 @@ class ContactsTableViewController: UITableViewController {
     @objc func addContactPress(){
         let addContactView = AddViewController(nibName: nil, bundle: nil)
         self.navigationController?.pushViewController(addContactView, animated: true)
+        addContactView.delegate = self
         //create and push addViewController
         //set the delegate
     }
@@ -115,3 +116,12 @@ class ContactsTableViewController: UITableViewController {
     */
 
 }
+
+extension ContactsTableViewController: AddViewControllerDelegate{
+    func createContact(name: String) {
+        persons.append(name)
+        navigationController?.popViewController(animated: true)
+        tableView.reloadData()
+    }
+}
+

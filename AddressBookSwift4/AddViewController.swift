@@ -10,6 +10,8 @@ import UIKit
 
 class AddViewController: UIViewController {
 
+    weak var delegate: AddViewControllerDelegate?
+    
     @IBOutlet weak var nomTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,7 +28,10 @@ class AddViewController: UIViewController {
             return
         }
         print(text)
-        self.navigationController?.popViewController(animated: true)
+        delegate?.createContact(name: text)
+        //self.navigationController?.popViewController(animated: true)
+        
+        
     }
     
     @IBAction func didPressCancel(_ sender: Any) {
@@ -43,4 +48,12 @@ class AddViewController: UIViewController {
     }
     */
 }
+
+protocol AddViewControllerDelegate : AnyObject{
+    
+    func createContact(name : String)
+}
+
+
+
 
