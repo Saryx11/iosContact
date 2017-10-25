@@ -11,8 +11,10 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddViewController" customModule="AddressBookSwift4" customModuleProvider="target">
             <connections>
+                <outlet property="addProgressBar" destination="zuu-HX-YlT" id="fTa-LH-qSz"/>
                 <outlet property="familyNameTextField" destination="Zmq-mg-WKt" id="qsK-pe-msM"/>
                 <outlet property="lastNameTextField" destination="yuK-65-ld1" id="QyB-DM-zCw"/>
+                <outlet property="progressLabel" destination="QZZ-7N-DDc" id="sHP-np-Abg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -43,6 +45,14 @@
                         <action selector="didPressValid:" destination="-1" eventType="touchUpInside" id="9cf-Ef-BqZ"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Fw-aH-kOw">
+                    <rect key="frame" x="196" y="191" width="54" height="30"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <state key="normal" title="Annuler"/>
+                    <connections>
+                        <action selector="didPressCancel:" destination="-1" eventType="touchUpInside" id="s7v-9I-c3y"/>
+                    </connections>
+                </button>
                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yuK-65-ld1">
                     <rect key="frame" x="70" y="153" width="180" height="30"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -57,18 +67,21 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Fw-aH-kOw">
-                    <rect key="frame" x="196" y="191" width="54" height="30"/>
+                <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zuu-HX-YlT">
+                    <rect key="frame" x="85" y="241" width="150" height="2"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <state key="normal" title="Annuler"/>
-                    <connections>
-                        <action selector="didPressCancel:" destination="-1" eventType="touchUpInside" id="s7v-9I-c3y"/>
-                    </connections>
-                </button>
+                </progressView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QZZ-7N-DDc">
+                    <rect key="frame" x="136" y="251" width="48" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
-            <point key="canvasLocation" x="25.5" y="51.5"/>
+            <point key="canvasLocation" x="25" y="51"/>
         </view>
     </objects>
 </document>
