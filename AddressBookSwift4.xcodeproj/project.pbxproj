@@ -15,6 +15,10 @@
 		FC240F2F1FA07ED600A76732 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC240F2D1FA07ED600A76732 /* LaunchScreen.storyboard */; };
 		FC240F3A1FA07ED700A76732 /* AddressBookSwift4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC240F391FA07ED700A76732 /* AddressBookSwift4Tests.swift */; };
 		FC240F451FA07ED700A76732 /* AddressBookSwift4UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC240F441FA07ED700A76732 /* AddressBookSwift4UITests.swift */; };
+		FC240F531FA07FC300A76732 /* ContactsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC240F521FA07FC300A76732 /* ContactsTableViewController.swift */; };
+		FC240F551FA081A100A76732 /* ContactsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC240F541FA081A100A76732 /* ContactsTableViewCell.swift */; };
+		FC240F581FA08F6F00A76732 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC240F561FA08F6F00A76732 /* AddViewController.swift */; };
+		FC240F591FA08F6F00A76732 /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC240F571FA08F6F00A76732 /* AddViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +53,10 @@
 		FC240F401FA07ED700A76732 /* AddressBookSwift4UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AddressBookSwift4UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC240F441FA07ED700A76732 /* AddressBookSwift4UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressBookSwift4UITests.swift; sourceTree = "<group>"; };
 		FC240F461FA07ED700A76732 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FC240F521FA07FC300A76732 /* ContactsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewController.swift; sourceTree = "<group>"; };
+		FC240F541FA081A100A76732 /* ContactsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsTableViewCell.swift; sourceTree = "<group>"; };
+		FC240F561FA08F6F00A76732 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
+		FC240F571FA08F6F00A76732 /* AddViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +110,10 @@
 				FC240F211FA07ED600A76732 /* AppDelegate.swift */,
 				FC240F231FA07ED600A76732 /* ViewController.swift */,
 				FC240F251FA07ED600A76732 /* Main.storyboard */,
+				FC240F521FA07FC300A76732 /* ContactsTableViewController.swift */,
+				FC240F541FA081A100A76732 /* ContactsTableViewCell.swift */,
+				FC240F561FA08F6F00A76732 /* AddViewController.swift */,
+				FC240F571FA08F6F00A76732 /* AddViewController.xib */,
 				FC240F2B1FA07ED600A76732 /* Assets.xcassets */,
 				FC240F2D1FA07ED600A76732 /* LaunchScreen.storyboard */,
 				FC240F301FA07ED600A76732 /* Info.plist */,
@@ -237,6 +249,7 @@
 			files = (
 				FC240F2F1FA07ED600A76732 /* LaunchScreen.storyboard in Resources */,
 				FC240F2C1FA07ED600A76732 /* Assets.xcassets in Resources */,
+				FC240F591FA08F6F00A76732 /* AddViewController.xib in Resources */,
 				FC240F271FA07ED600A76732 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -264,6 +277,9 @@
 			files = (
 				FC240F241FA07ED600A76732 /* ViewController.swift in Sources */,
 				FC240F2A1FA07ED600A76732 /* AddressBookSwift4.xcdatamodeld in Sources */,
+				FC240F581FA08F6F00A76732 /* AddViewController.swift in Sources */,
+				FC240F551FA081A100A76732 /* ContactsTableViewCell.swift in Sources */,
+				FC240F531FA07FC300A76732 /* ContactsTableViewController.swift in Sources */,
 				FC240F221FA07ED600A76732 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
