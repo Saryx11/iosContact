@@ -28,11 +28,7 @@ class AddViewController: UIViewController {
         guard let familyName: String = familyNameTextField.text, let lastName: String = lastNameTextField.text else{
             return
         }
-        //print(text)
         delegate?.createContact(familyName: familyName, lastName: lastName)
-        //self.navigationController?.popViewController(animated: true)
-        
-        
     }
     
     @IBAction func didPressCancel(_ sender: Any) {

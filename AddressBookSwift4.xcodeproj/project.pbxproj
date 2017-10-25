@@ -20,6 +20,8 @@
 		FC240F581FA08F6F00A76732 /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC240F561FA08F6F00A76732 /* AddViewController.swift */; };
 		FC240F591FA08F6F00A76732 /* AddViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC240F571FA08F6F00A76732 /* AddViewController.xib */; };
 		FC240F5B1FA09AE200A76732 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC240F5A1FA09AE200A76732 /* Person.swift */; };
+		FC240F5E1FA0ADB600A76732 /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC240F5C1FA0ADB600A76732 /* DetailsViewController.swift */; };
+		FC240F5F1FA0ADB600A76732 /* DetailsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC240F5D1FA0ADB600A76732 /* DetailsViewController.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +61,8 @@
 		FC240F561FA08F6F00A76732 /* AddViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		FC240F571FA08F6F00A76732 /* AddViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AddViewController.xib; sourceTree = "<group>"; };
 		FC240F5A1FA09AE200A76732 /* Person.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		FC240F5C1FA0ADB600A76732 /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		FC240F5D1FA0ADB600A76732 /* DetailsViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DetailsViewController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +121,8 @@
 				FC240F541FA081A100A76732 /* ContactsTableViewCell.swift */,
 				FC240F561FA08F6F00A76732 /* AddViewController.swift */,
 				FC240F571FA08F6F00A76732 /* AddViewController.xib */,
+				FC240F5C1FA0ADB600A76732 /* DetailsViewController.swift */,
+				FC240F5D1FA0ADB600A76732 /* DetailsViewController.xib */,
 				FC240F2B1FA07ED600A76732 /* Assets.xcassets */,
 				FC240F2D1FA07ED600A76732 /* LaunchScreen.storyboard */,
 				FC240F301FA07ED600A76732 /* Info.plist */,
@@ -252,6 +258,7 @@
 			files = (
 				FC240F2F1FA07ED600A76732 /* LaunchScreen.storyboard in Resources */,
 				FC240F2C1FA07ED600A76732 /* Assets.xcassets in Resources */,
+				FC240F5F1FA0ADB600A76732 /* DetailsViewController.xib in Resources */,
 				FC240F591FA08F6F00A76732 /* AddViewController.xib in Resources */,
 				FC240F271FA07ED600A76732 /* Main.storyboard in Resources */,
 			);
@@ -281,6 +288,7 @@
 				FC240F241FA07ED600A76732 /* ViewController.swift in Sources */,
 				FC240F2A1FA07ED600A76732 /* AddressBookSwift4.xcdatamodeld in Sources */,
 				FC240F581FA08F6F00A76732 /* AddViewController.swift in Sources */,
+				FC240F5E1FA0ADB600A76732 /* DetailsViewController.swift in Sources */,
 				FC240F551FA081A100A76732 /* ContactsTableViewCell.swift in Sources */,
 				FC240F5B1FA09AE200A76732 /* Person.swift in Sources */,
 				FC240F531FA07FC300A76732 /* ContactsTableViewController.swift in Sources */,
