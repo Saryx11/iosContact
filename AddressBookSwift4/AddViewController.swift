@@ -11,8 +11,9 @@ import UIKit
 class AddViewController: UIViewController {
 
     weak var delegate: AddViewControllerDelegate?
+    @IBOutlet weak var familyNameTextField: UITextField!
+    @IBOutlet weak var lastNameTextField: UITextField!
     
-    @IBOutlet weak var nomTextField: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -24,11 +25,11 @@ class AddViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     @IBAction func didPressValid(_ sender: Any) {
-        guard let text: String = nomTextField.text else{
+        guard let familyName: String = familyNameTextField.text, let lastName: String = lastNameTextField.text else{
             return
         }
-        print(text)
-        delegate?.createContact(name: text)
+        //print(text)
+        delegate?.createContact(familyName: familyName, lastName: lastName)
         //self.navigationController?.popViewController(animated: true)
         
         
@@ -51,7 +52,7 @@ class AddViewController: UIViewController {
 
 protocol AddViewControllerDelegate : AnyObject{
     
-    func createContact(name : String)
+    func createContact(familyName: String, lastName: String)
 }
 
 
