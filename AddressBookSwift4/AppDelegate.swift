@@ -90,4 +90,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
 }
-
+extension UIViewController{
+    func appDelegate() -> AppDelegate {
+        return UIApplication.shared.delegate as! AppDelegate
+    }
+}

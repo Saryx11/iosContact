@@ -15,10 +15,10 @@ protocol DetailsViewControllerDelegate: AnyObject{
 
 
 class DetailsViewController: UIViewController {
-    @IBOutlet weak var familyNameLabel: UILabel!
+    @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
     var index: Int = 0
-    var familyName: String = ""
+    var firstName: String = ""
     var lastName: String = ""
     weak var delegate: DetailsViewControllerDelegate?
     
@@ -27,7 +27,7 @@ class DetailsViewController: UIViewController {
 
         let deleteContact = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteContactPress))
         self.navigationItem.rightBarButtonItem = deleteContact
-        familyNameLabel.text = self.familyName
+        firstNameLabel.text = self.firstName
         lastNameLabel.text = self.lastName
         // Do any additional setup after loading the view.
     }

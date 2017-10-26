@@ -11,7 +11,7 @@ import UIKit
 class AddViewController: UIViewController {
     
     weak var delegate: AddViewControllerDelegate?
-    @IBOutlet weak var familyNameTextField: UITextField!
+    @IBOutlet weak var firstNameTextField: UITextField!
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var addProgressBar: UIProgressView!
     @IBOutlet weak var progressLabel: UILabel!
@@ -34,10 +34,10 @@ class AddViewController: UIViewController {
     }
     
     func createPerson () {
-        guard let familyName: String = familyNameTextField.text, let lastName: String = lastNameTextField.text else{
+        guard let firstName: String = firstNameTextField.text, let lastName: String = lastNameTextField.text else{
             return
         }
-        delegate?.createContact(familyName: familyName, lastName: lastName)
+        delegate?.createContact(firstName: firstName, lastName: lastName)
     }
     
     func showProgress(){
@@ -73,7 +73,7 @@ class AddViewController: UIViewController {
 
 protocol AddViewControllerDelegate : AnyObject{
     
-    func createContact(familyName: String, lastName: String)
+    func createContact(firstName: String, lastName: String)
 }
 
 

@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina4_0" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,7 +9,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="AddViewController" customModule="AddressBookSwift4" customModuleProvider="target">
             <connections>
                 <outlet property="addProgressBar" destination="zuu-HX-YlT" id="fTa-LH-qSz"/>
-                <outlet property="familyNameTextField" destination="Zmq-mg-WKt" id="qsK-pe-msM"/>
+                <outlet property="firstNameTextField" destination="Zmq-mg-WKt" id="qsK-pe-msM"/>
                 <outlet property="lastNameTextField" destination="yuK-65-ld1" id="QyB-DM-zCw"/>
                 <outlet property="progressLabel" destination="QZZ-7N-DDc" id="sHP-np-Abg"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>

@@ -7,31 +7,61 @@
 //
 
 import UIKit
+import CoreData
 
 class ContactsTableViewController: UITableViewController {
     var persons = [Person]()
 
+    func reloadDataFromDataBase(){
+        let fetchRequest = NSFetchRequest<Person>(entityName: "Person")
+        let sortFirstName = NSSortDescriptor(key: "firstName", ascending: true)
+        let sortLastName = NSSortDescriptor(key: "lastName", ascending: true)
+        fetchRequest.sortDescriptors = [sortFirstName, sortLastName]
+        let context = self.appDelegate().persistentContainer.viewContext
+        print(try? context.fetch(fetchRequest))
+        guard let personsDB = try? context.fetch(fetchRequest) else{
+            return
+        }
+        persons=personsDB
+        self.tableView.reloadData()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let namesPlist = Bundle.main.path(forResource: "names.plist", ofType: nil)
+        /*let namesPlist = Bundle.main.path(forResource: "names.plist", ofType: nil)
         if let namesPath = namesPlist{
             let url = URL(fileURLWithPath: namesPath)
             let dataArray = NSArray(contentsOf: url)
             
             for dict in dataArray!{
                 if let dictionnary = dict as?[String: String]{
-                    let person = Person(familyName: dictionnary["lastname"]!, lastName: dictionnary["name"]!)
+                    let person = Person(firstName: dictionnary["lastname"]!, lastName: dictionnary["name"]!)
                     persons.append(person)
                     print(dictionnary)
                 }
             }
             print(dataArray)
-        }
+        }*/
         self.title = "Contacts"
-        persons.append(Person(familyName: "Louis", lastName: "Benjamin"))
-        persons.append(Person(familyName: "Revel", lastName: "Maxime"))
-        persons.append(Person(familyName: "Folmer", lastName: "Thomas"))
+        
+        /*if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
+            let context = appDelegate.persistentContainer.viewContext
+            let person = Person(entity: Person.entity(), insertInto: context)
+            person.firstName = "Benjamin"
+            person.lastName = "Louis"
+            //persons.append(person)
+            
+            do{
+                try context.save()
+            }catch{
+                print(error.localizedDescription)
+            }
+            
+        }*/
+        //persons.append(Person(firstName: "Louis", lastName: "Benjamin"))
+        //persons.append(Person(firstName: "Revel", lastName: "Maxime"))
+        //persons.append(Person(firstName: "Folmer", lastName: "Thomas"))
         
    
         // Uncomment the following line to preserve selection between presentations
@@ -42,6 +72,10 @@ class ContactsTableViewController: UITableViewController {
     
         let addContact = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addContactPress))
         self.navigationItem.rightBarButtonItem = addContact
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        reloadDataFromDataBase()
     }
 
     @objc func addContactPress(){
@@ -74,8 +108,8 @@ class ContactsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsViewController = DetailsViewController(nibName: nil, bundle: nil)
         let person = persons[indexPath.row]
-        detailsViewController.familyName = person.familyName
-        detailsViewController.lastName = person.lastName
+        detailsViewController.firstName = person.firstName!
+        detailsViewController.lastName = person.lastName!
         detailsViewController.index = indexPath.row
         self.navigationController?.pushViewController(detailsViewController, animated: true)
         detailsViewController.delegate = self
@@ -86,7 +120,7 @@ class ContactsTableViewController: UITableViewController {
 
         if let contactCell = cell as? ContactsTableViewCell{
             let person: Person = persons[indexPath.row]
-            contactCell.nameLabel.text = person.familyName+" "+person.lastName
+            contactCell.nameLabel.text = person.firstName! + " " + person.lastName!
         }
         // Configure the cell...
 
@@ -142,10 +176,22 @@ class ContactsTableViewController: UITableViewController {
 }
 
 extension ContactsTableViewController: AddViewControllerDelegate{
-    func createContact(familyName: String, lastName: String) {
-        persons.append(Person(familyName: familyName,lastName: lastName))
-        navigationController?.popViewController(animated: true)
-        tableView.reloadData()
+    func createContact(firstName: String, lastName: String) {
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
+            let context = appDelegate.persistentContainer.viewContext
+            let person = Person(entity: Person.entity(), insertInto: context)
+            person.firstName = firstName
+            person.lastName = lastName
+            //persons.append(person)
+            
+            do{
+                try context.save()
+            }catch{
+                print(error.localizedDescription)
+            }
+            navigationController?.popViewController(animated: true)
+            tableView.reloadData()
+        }
     }
 }
 extension ContactsTableViewController: DetailsViewControllerDelegate{

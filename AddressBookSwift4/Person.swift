@@ -7,15 +7,4 @@
 //
 
 import Foundation
-class Person{
-    var familyName: String
-    var lastName: String
-    init(){
-        self.familyName = ""
-        self.lastName = ""
-    }
-    init(familyName: String, lastName: String){
-        self.familyName = familyName
-        self.lastName = lastName
-    }
-}
+
