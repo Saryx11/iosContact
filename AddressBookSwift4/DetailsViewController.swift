@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DetailsViewControllerDelegate: AnyObject{
-    func deleteContact(index: Int)
+    func deleteContact(person: Person)
 }
 
 
@@ -17,9 +17,7 @@ protocol DetailsViewControllerDelegate: AnyObject{
 class DetailsViewController: UIViewController {
     @IBOutlet weak var firstNameLabel: UILabel!
     @IBOutlet weak var lastNameLabel: UILabel!
-    var index: Int = 0
-    var firstName: String = ""
-    var lastName: String = ""
+    var person: Person?
     weak var delegate: DetailsViewControllerDelegate?
     
     override func viewDidLoad() {
@@ -27,8 +25,8 @@ class DetailsViewController: UIViewController {
 
         let deleteContact = UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(deleteContactPress))
         self.navigationItem.rightBarButtonItem = deleteContact
-        firstNameLabel.text = self.firstName
-        lastNameLabel.text = self.lastName
+        firstNameLabel.text = self.person?.firstName
+        lastNameLabel.text = self.person?.lastName
         // Do any additional setup after loading the view.
     }
 
@@ -38,7 +36,10 @@ class DetailsViewController: UIViewController {
             
         }
         let okAction = UIAlertAction(title: "Oui", style: .default){action in
-            self.delegate?.deleteContact(index: self.index)
+            guard let personToDelete = self.person else{
+                return
+            }
+            self.delegate?.deleteContact(person: personToDelete)
         }
         alertController.addAction(okAction)
         alertController.addAction(cancelAction)

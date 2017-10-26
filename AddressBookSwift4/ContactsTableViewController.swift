@@ -91,9 +91,7 @@ class ContactsTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let detailsViewController = DetailsViewController(nibName: nil, bundle: nil)
         let person = persons[indexPath.row]
-        detailsViewController.firstName = person.firstName!
-        detailsViewController.lastName = person.lastName!
-        detailsViewController.index = indexPath.row
+        detailsViewController.person = person
         self.navigationController?.pushViewController(detailsViewController, animated: true)
         detailsViewController.delegate = self
     }
@@ -176,8 +174,10 @@ extension ContactsTableViewController: AddViewControllerDelegate{
     }
 }
 extension ContactsTableViewController: DetailsViewControllerDelegate{
-    func deleteContact(index: Int){
-        persons.remove(at: index)
+    func deleteContact(person: Person){
+        let context = self.appDelegate().persistentContainer.viewContext
+        context.delete(person)
+        try? context.save()
         navigationController?.popViewController(animated: true)
         tableView.reloadData()
     }
