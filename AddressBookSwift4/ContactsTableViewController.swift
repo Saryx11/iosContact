@@ -18,7 +18,7 @@ class ContactsTableViewController: UITableViewController {
         let sortLastName = NSSortDescriptor(key: "lastName", ascending: true)
         fetchRequest.sortDescriptors = [sortFirstName, sortLastName]
         let context = self.appDelegate().persistentContainer.viewContext
-        print(try? context.fetch(fetchRequest))
+        //print(try? context.fetch(fetchRequest))
         guard let personsDB = try? context.fetch(fetchRequest) else{
             return
         }
@@ -29,7 +29,8 @@ class ContactsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        /*let namesPlist = Bundle.main.path(forResource: "names.plist", ofType: nil)
+        /* HOW TO USE PLIST FILES
+         let namesPlist = Bundle.main.path(forResource: "names.plist", ofType: nil)
         if let namesPath = namesPlist{
             let url = URL(fileURLWithPath: namesPath)
             let dataArray = NSArray(contentsOf: url)
@@ -44,26 +45,7 @@ class ContactsTableViewController: UITableViewController {
             print(dataArray)
         }*/
         self.title = "Contacts"
-        
-        /*if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
-            let context = appDelegate.persistentContainer.viewContext
-            let person = Person(entity: Person.entity(), insertInto: context)
-            person.firstName = "Benjamin"
-            person.lastName = "Louis"
-            //persons.append(person)
-            
-            do{
-                try context.save()
-            }catch{
-                print(error.localizedDescription)
-            }
-            
-        }*/
-        //persons.append(Person(firstName: "Louis", lastName: "Benjamin"))
-        //persons.append(Person(firstName: "Revel", lastName: "Maxime"))
-        //persons.append(Person(firstName: "Folmer", lastName: "Thomas"))
-        
-   
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
@@ -85,6 +67,7 @@ class ContactsTableViewController: UITableViewController {
         //create and push addViewController
         //set the delegate
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -182,8 +165,6 @@ extension ContactsTableViewController: AddViewControllerDelegate{
             let person = Person(entity: Person.entity(), insertInto: context)
             person.firstName = firstName
             person.lastName = lastName
-            //persons.append(person)
-            
             do{
                 try context.save()
             }catch{
