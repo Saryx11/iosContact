@@ -11,6 +11,6 @@
     </entity>
     <fetchRequest name="getAllSortByName" entity="Person" predicateString="firstName CONTAINS &quot;&quot;"/>
     <elements>
-        <element name="Person" positionX="-63" positionY="-18" width="128" height="41"/>
+        <element name="Person" positionX="-63" positionY="-18" width="128" height="131"/>
     </elements>
 </model>
