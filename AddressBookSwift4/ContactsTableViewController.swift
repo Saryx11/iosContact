@@ -193,42 +193,58 @@ class ContactsTableViewController: UITableViewController {
     }
     
     func addOnServer(person: Person){
-        let urlString = "http://192.168.116.2:3000/persons"
+        var json = [String:String]()
         
-        //declare parameter as a dictionary which contains string as key and value combination. considering inputs are valid
-        let parameters = ["firstname": person.firstName, "lastname": person.lastName, "pictureUrl": person.avatarURL]
-        //create the url with URL
+        json["surname"] = person.firstName
+        json["lastname"] = person.lastName
+        json["pictureUrl"] = "https://www.raidghost.com/sources/avatar_defaut.png"
+        let urlString = "http://192.168.116.2:3000/persons"
         let url = URL(string: urlString)!
-        //create the session object
         let session = URLSession.shared
-        //now create the URLRequest object using the url object
         var request = URLRequest(url: url)
-        request.httpMethod = "POST" //set http method as POST
-        do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: parameters, options: .prettyPrinted) // pass dictionary to nsdata object and set it as request body
-        } catch let error {
-            print(error.localizedDescription)
-        }
-        request.addValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/json", forHTTPHeaderField: "Accept")
-        //create dataTask using the session object to send data to the server
-        let task = session.dataTask(with: request as URLRequest, completionHandler: { data, response, error in
-            guard error == nil else {
-                return
-            }
-            guard let data = data else {
-                return
-            }
-            do {
-                //create json object from data
-                if let json = try JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any] {
-                    print(json)
-                    // handle json...
+        request.httpMethod = "POST"
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.httpBody = try? JSONSerialization.data(withJSONObject: json, options: .prettyPrinted)
+        
+        let task = session.dataTask(with: request){ data, response, error in
+            
+            if let data = data{
+                
+                let jsonDict = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]
+                guard let dict = jsonDict as? [String: Any]else{
+                    return
                 }
-            } catch let error {
-                print(error.localizedDescription)
+                DispatchQueue.main.async {
+                    let personFromjson = Person(entity: Person.entity(), insertInto: self.appDelegate().persistentContainer.viewContext)
+                    personFromjson.lastName = dict["surname"] as? String
+                    personFromjson.firstName = dict["lastname"] as? String
+                    personFromjson.avatarURL = dict["pictureUrl"] as? String
+                    personFromjson.id = Int32(dict["id"] as? Int ?? 0)
+                    try? self.appDelegate().persistentContainer.viewContext.save()
+                }
+                
             }
-        })
+            
+        }
+        task.resume()
+    }
+    func deleteOnServer(person: Person){
+    
+        
+       
+        let urlString = "http://192.168.116.2:3000/persons/" + String(person.id)
+        let url = URL(string: urlString)!
+        let session = URLSession.shared
+        var request = URLRequest(url: url)
+        request.httpMethod = "DELETE"
+        let task = session.dataTask(with: request){ data, response, error in
+            if let data = data{
+                let jsonDict = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]
+                guard let dict = jsonDict as? [String: Any]else{
+                    return
+                }
+            }
+        }
         task.resume()
     }
     
@@ -286,11 +302,8 @@ extension ContactsTableViewController: AddViewControllerDelegate{
             let person = Person(entity: Person.entity(), insertInto: context)
             person.firstName = firstName
             person.lastName = lastName
-            do{
-                try context.save()
-            }catch{
-                print(error.localizedDescription)
-            }
+            
+            addOnServer(person: person)
             navigationController?.popViewController(animated: true)
             //tableView.reloadData()
         }
@@ -299,6 +312,7 @@ extension ContactsTableViewController: AddViewControllerDelegate{
 extension ContactsTableViewController: DetailsViewControllerDelegate{
     func deleteContact(person: Person){
         let context = self.appDelegate().persistentContainer.viewContext
+        deleteOnServer(person: person)
         context.delete(person)
         try? context.save()
         navigationController?.popViewController(animated: true)
