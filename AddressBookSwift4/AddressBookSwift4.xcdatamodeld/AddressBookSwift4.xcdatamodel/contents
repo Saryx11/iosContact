@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13241" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Person" representedClassName="Person" syncable="YES" codeGenerationType="class">
-        <attribute name="avatarURL" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="avatarURL" optional="YES" attributeType="String" defaultValueString="&quot;https://www.raidghost.com/sources/avatar_defaut.png&quot;" syncable="YES"/>
         <attribute name="firstName" attributeType="String" syncable="YES"/>
         <attribute name="id" optional="YES" attributeType="Integer 32" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="lastName" attributeType="String" syncable="YES"/>
@@ -11,6 +11,6 @@
     </entity>
     <fetchRequest name="getAllSortByName" entity="Person" predicateString="firstName CONTAINS &quot;&quot;"/>
     <elements>
-        <element name="Person" positionX="-63" positionY="-18" width="128" height="41"/>
+        <element name="Person" positionX="-63" positionY="-18" width="128" height="116"/>
     </elements>
 </model>

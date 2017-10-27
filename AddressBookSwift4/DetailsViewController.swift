@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 protocol DetailsViewControllerDelegate: AnyObject{
     func deleteContact(person: Person)
@@ -19,6 +20,7 @@ class DetailsViewController: UIViewController {
     @IBOutlet weak var lastNameLabel: UILabel!
     var person: Person?
     weak var delegate: DetailsViewControllerDelegate?
+    @IBOutlet weak var avatarView: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,6 +29,11 @@ class DetailsViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = deleteContact
         firstNameLabel.text = self.person?.firstName
         lastNameLabel.text = self.person?.lastName
+        guard let imageUrl = person?.avatarURL else{
+            return
+        }
+        let url = URL(string: imageUrl)
+        avatarView.kf.setImage(with: url)
         // Do any additional setup after loading the view.
     }
 
