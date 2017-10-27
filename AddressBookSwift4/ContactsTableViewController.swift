@@ -197,7 +197,7 @@ class ContactsTableViewController: UITableViewController {
         
         json["surname"] = person.firstName
         json["lastname"] = person.lastName
-        json["pictureUrl"] = "https://www.raidghost.com/sources/avatar_defaut.png"
+        json["pictureUrl"] = person.avatarURL
         let urlString = "http://192.168.116.2:3000/persons"
         let url = URL(string: urlString)!
         let session = URLSession.shared
@@ -238,12 +238,7 @@ class ContactsTableViewController: UITableViewController {
         var request = URLRequest(url: url)
         request.httpMethod = "DELETE"
         let task = session.dataTask(with: request){ data, response, error in
-            if let data = data{
-                let jsonDict = try? JSONSerialization.jsonObject(with: data, options: .mutableContainers) as? [String: Any]
-                guard let dict = jsonDict as? [String: Any]else{
-                    return
-                }
-            }
+            
         }
         task.resume()
     }
@@ -296,12 +291,13 @@ class ContactsTableViewController: UITableViewController {
 }
 
 extension ContactsTableViewController: AddViewControllerDelegate{
-    func createContact(firstName: String, lastName: String) {
+    func createContact(firstName: String, lastName: String, avatarUrl: String) {
         if let appDelegate = UIApplication.shared.delegate as? AppDelegate{
             let context = appDelegate.persistentContainer.viewContext
             let person = Person(entity: Person.entity(), insertInto: context)
             person.firstName = firstName
             person.lastName = lastName
+            person.avatarURL = avatarUrl
             
             addOnServer(person: person)
             navigationController?.popViewController(animated: true)

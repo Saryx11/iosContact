@@ -15,6 +15,7 @@ class AddViewController: UIViewController {
     @IBOutlet weak var lastNameTextField: UITextField!
     @IBOutlet weak var addProgressBar: UIProgressView!
     @IBOutlet weak var progressLabel: UILabel!
+    @IBOutlet weak var avatarTextField: UITextField!
     var progress: Float=0
     
     
@@ -34,10 +35,13 @@ class AddViewController: UIViewController {
     }
     
     func createPerson () {
-        guard let firstName: String = firstNameTextField.text, let lastName: String = lastNameTextField.text else{
+        guard let firstName: String = firstNameTextField.text, let lastName: String = lastNameTextField.text, var avatarUrl : String = avatarTextField.text else{
             return
         }
-        delegate?.createContact(firstName: firstName, lastName: lastName)
+        if avatarUrl == ""{
+            avatarUrl = "https://www.raidghost.com/sources/avatar_defaut.png"
+        }
+        delegate?.createContact(firstName: firstName, lastName: lastName, avatarUrl: avatarUrl)
     }
     
     func showProgress(){
@@ -73,7 +77,7 @@ class AddViewController: UIViewController {
 
 protocol AddViewControllerDelegate : AnyObject{
     
-    func createContact(firstName: String, lastName: String)
+    func createContact(firstName: String, lastName: String, avatarUrl: String)
 }
 
 

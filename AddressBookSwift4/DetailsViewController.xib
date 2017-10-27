@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -8,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailsViewController" customModule="AddressBookSwift4" customModuleProvider="target">
             <connections>
+                <outlet property="avatarView" destination="Z2g-SV-EY7" id="6yV-Yb-8ZR"/>
                 <outlet property="firstNameLabel" destination="f39-Zb-Kxu" id="RWh-fp-pYm"/>
                 <outlet property="lastNameLabel" destination="L72-W2-2Be" id="hpj-ig-gTb"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -47,7 +51,7 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="index" translatesAutoresizingMaskIntoConstraints="NO" id="Z2g-SV-EY7">
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="avatar" translatesAutoresizingMaskIntoConstraints="NO" id="Z2g-SV-EY7">
                     <rect key="frame" x="0.0" y="182.5" width="375" height="240"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="240" id="gzI-xE-cyj"/>
@@ -72,6 +76,6 @@
         </view>
     </objects>
     <resources>
-        <image name="index" width="225" height="225"/>
+        <image name="avatar" width="225" height="225"/>
     </resources>
 </document>
